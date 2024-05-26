@@ -3,7 +3,8 @@ public:
 
     int result;
     int K;
-    void dfs(vector<int> &nums, int idx, unordered_map<int, int> &mp) {
+    void solve(vector<int> &nums, int idx, unordered_map<int, int> &mp) 
+    {
 
         if(idx == nums.size()) {
             result++;
@@ -11,12 +12,12 @@ public:
         }
 
         //not_take
-        dfs(nums, idx+1, mp);
+        solve(nums, idx+1, mp);
         
         //checking if we can take it or not
         if(!mp[nums[idx] - K] && !mp[nums[idx] + K]) {
                 mp[nums[idx]]++;
-                dfs(nums, idx + 1, mp);
+                solve(nums, idx + 1, mp);
                 mp[nums[idx]]--;
         }
     }
@@ -28,7 +29,7 @@ public:
 
         unordered_map<int, int> mp;
  
-        dfs(nums, 0, mp);
+        solve(nums, 0, mp);
 
         return result - 1; 
     }
