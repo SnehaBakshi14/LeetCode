@@ -12,7 +12,7 @@ public:
                 bucket[arr[i]]++;
             }
         }
-        for(int i=5000;i>=0;i--){
+        for(int i=n;i>=0;i--){
             total += bucket[i];
             if(total >= i){
                 return i;
