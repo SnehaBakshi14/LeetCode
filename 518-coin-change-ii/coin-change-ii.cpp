@@ -7,7 +7,7 @@ public:
         if(amt == 0)
         return 1;//1 way found
 
-        if(i==n)
+        if(i>=n)
         return 0;//index out of bound
 
         if(t[i][amt] != -1)
