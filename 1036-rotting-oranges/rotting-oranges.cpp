@@ -6,6 +6,7 @@ public:
         int m = grid[0].size();
         queue<pair<pair<int,int>,int>> q;
         vector<vector<int>> vis(n, vector<int>(m, -1)); // Initialize vis array with -1
+        //int vis[n][m];
         int cntFresh = 0;
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
