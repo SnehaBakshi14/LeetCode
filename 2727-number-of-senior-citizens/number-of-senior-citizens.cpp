@@ -4,11 +4,19 @@ public:
     {
         int count =0;
         int n = details.size();
-        for(string &vec : details)
+        // for(string &vec : details)
+        // {
+        //     char a = vec[11];
+        //     char b = vec[12];
+        //     if( a > '6' || (a == '6' && b > '0'))
+        //     {
+        //         count++;
+        //     }
+        // }
+        for(auto &vec : details)
         {
-            char a = vec[11];
-            char b = vec[12];
-            if( a > '6' || (a == '6' && b > '0'))
+            int age = stoi(vec.substr(11,2));
+            if(age > 60)
             {
                 count++;
             }
