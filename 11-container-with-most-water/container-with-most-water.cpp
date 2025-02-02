@@ -1,18 +1,29 @@
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
-        int left = 0;
-        int right = height.size()-1;
-        int MaxArea = 0;
-        int Area = 0;
-
-        while(left < right)
+    int maxArea(vector<int>& height) 
+    {
+        int n = height.size();
+        int area = 0;
+        int maxarea = 0;
+        int i =0, j= n-1;
+        while(i < j)
         {
-            Area = (right-left)* min(height[left],height[right]);
-            MaxArea = max(MaxArea,Area);
-            if(height[left] < height[right]) left++;
-            else right--;
+            int width = j-i;
+            int h = min(height[i],height[j]); 
+            // pani kahan tk store hoga jo bhi minimum height hogi vha tk
+            area = width*h;
+            maxarea = max(area,maxarea);
+            if(height[i] >= height[j]) 
+            // as you are decreasing the width try to keep the longer height , `            greedily apne pass badi height rakho 
+            {
+                j--;
+            }
+            else
+            {
+                i++;
+            }
+            
         }
-        return MaxArea;
-    }
+        return maxarea;
+    }
 };
