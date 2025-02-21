@@ -13,9 +13,10 @@ public:
             if(j>=0){
                 carry += num2[j--] - '0';
             }
-            res = to_string(carry % 10) + res;
+            res += to_string(carry % 10);
             carry /= 10;
         }
+        reverse(res.begin(),res.end());
         return res;
     }
 };
